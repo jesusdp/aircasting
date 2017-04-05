@@ -1,10 +1,11 @@
 <div ng-controller="InfoWindowCtrl" >
   <ul>
-    <li><span>Readings for: </span>{{sensors.selected().id}}</li>
+    <!-- <li><span>Readings for: </span>{{sensors.selected().id}}</li> -->
+    <li><span>PM2.5 pollution measurements (µg/m³)</span></li>
     <li><span>Average reading: </span>{{infoWindow.data.average | number:0 }}
       {{sensors.selected().unit_symbol }}</li>
     <li><span># of samples: </span>{{infoWindow.data.number_of_samples }}</li>
     <li><span># of contributors: </span>{{infoWindow.data.number_of_contributors }}</li>
-    <li><span>Top contributors: </span>{{infoWindow.data.top_contributors.join(', ') }}</li>
+    <li><span>Data collected by: </span>{{infoWindow.data.top_contributors.join(', ') }}</li>
   </ul>
 </div>

@@ -1,6 +1,7 @@
 <div ng-controller="HeatCtrl">
-  <h4 ng-click="expandables.toggle('heat')" ng-class="expandables.css('heat')">Heat Legend Units</h4>
+  <h4 ng-click="expandables.toggle('heat')" ng-class="expandables.css('heat')">Air quality colour scale</h4>
   <section ng-show="expandables.visible('heat')">
+    <p>“The colour scale is <a href="aqicn.org/faq/2013-09-09/revised-pm25-aqi-breakpoints/">Air Quality Index standards for PM2.5 particulates</a>. <span style="color: green;">Green</span> represents good quality air with little to no risk, <span style="color: yellow;">yellow</span> shows moderate risks for those unusually sensitive to air pollution, <span style="color: orange;">orange</span> shows unhealthy air quality levels for sensitive groups, and <span style="color: red;">red</span> is unhealthy for everyone, with sensitive groups potentially facing serious health effects. For all colours outside of Green, the AQI and WHO recommend active children, adults and vulnerable groups with respiratory diseases limit prolonged outdoor exertion.”</p>
     <div class="slider">
       <input airinput type="number" class="highest narrow" airinput-blur="storageEvents.onHighestInput()" >
       <input type="hidden" ng-model="storage.data.heat.highest" >
