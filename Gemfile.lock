@@ -68,7 +68,6 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
-    byebug (8.2.5)
     cane (2.6.2)
       parallel
     capistrano (2.14.2)
@@ -337,9 +336,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.3.0)
-      byebug (~> 8.0)
-      pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     quiet_assets (1.1.0)
@@ -545,7 +541,6 @@ DEPENDENCIES
   newrelic_rpm (~> 3.14, >= 3.14.0.305)
   paperclip (~> 2.8.0)
   progress
-  pry-byebug
   pry-rails
   quiet_assets
   rails (= 3.2.22.2)
@@ -573,4 +568,4 @@ DEPENDENCIES
   yui-compressor
 
 BUNDLED WITH
-   1.12.3
+   1.13.7

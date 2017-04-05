@@ -3,7 +3,7 @@
   %head
     %title AirCasting
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=true"
+    = javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyAMTRYTces56taHFC7JOstd_sFxbgzZuHQ&sensor=true"
     = favicon_link_tag "favicon.png"
     = csrf_meta_tags
     = render :partial => 'shared/analytics'
@@ -13,7 +13,7 @@
     .notice(ng-controller="FlashCtrl" ng-cloak ng-show="flash.message" ng-click="clear()") {{flash.message}}
     #mapview(ng-controller="MapCtrl" googlemap="")
     #hud(ng-controller="HudCtrl" ng-cloak ng-hide="map.streetViewVisible()")
-      #left-hud(ng-include="" src="versioner.path('/partials/left_hud.html')")
+      _# #left-hud(ng-include="" src="versioner.path('/partials/left_hud.html')") #_
       #right-hud
         = yield
       #ajax-loader(spinner="overlay")

@@ -36,10 +36,11 @@ body#map {
 }
 
 #hud_view {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border: 2px solid #858585;
+  background: none repeat scroll 0 0 rgba(1, 1, 1, 0.78);;
+  border: 2px solid #247ba0;
   margin-top: -2px;
   padding: 10px;
+  border-radius: 0px 5px 5px 5px
 }
 
 #ajax-loader {
@@ -63,6 +64,7 @@ body#map {
     padding-left: 5px;
     list-style: none;
     height:100%;
+    color:#000;
 
     li {
       max-width: 230px;
@@ -376,9 +378,10 @@ body#map {
     background:rgb(133,133,133);
 
     padding:5px 10px;
-    border:2px solid #858585;
+    border:2px solid #247ba0;
     border-bottom:none;
     margin-right:10px;
+    border-radius: 5px 5px 0px 0px;
 
     &.active {
       background: rgb(255, 255, 255);
@@ -472,7 +475,7 @@ body#map {
 
   h4 {
     margin:0 0 5px 0;
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px solid #ccc;
     background: url("arrow-down.png") no-repeat right center;
     padding:5px 0px;
     cursor: pointer;

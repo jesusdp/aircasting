@@ -46,7 +46,6 @@ gem 'geocoder', '~> 1.2'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-byebug'
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'capistrano-sidekiq'
