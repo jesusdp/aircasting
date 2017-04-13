@@ -17,8 +17,8 @@ function TimeFiltersCtrl($scope, params, expandables, storage, storageEvents, ut
   $scope.maxTime = 24 * 60 - 1;
   $scope.minDay = 0;
   $scope.maxDay = 365;
-  $scope.minYear = 2011;
-  $scope.maxYear = currentYear();
+  $scope.minYear = 2016;
+  $scope.maxYear = 2020;
 
   storage.updateDefaults({time: {
       timeFrom: $scope.minTime  + utils.timeOffset,

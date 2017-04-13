@@ -6,7 +6,7 @@
     <h4 ng-click="expandables.toggle('sensor')" ng-class="expandables.css('sensor')">Parameter - Sensor</h4>
     <section ng-show="expandables.visible('sensor')" >
     <p>
-      <select ng-model="params.get('data').sensorId" ng-options="sensor.id as sensor.select_label for (sensorId, sensor) in sensors.get()">
+      <select ng-model="params.get('data').sensorId" ng-options="sensor.id as sensor.select_label for (sensorId, sensor) in sensors.get()" style="display:none;">
         <option value="">All</option>
       </select>
     </p>
@@ -17,7 +17,7 @@
     <section ng-show="expandables.visible('location')">
       <div class="textfield">
         <p>
-          <label>Address, Intersection, or Zip
+          <label>Enter City Name
             <input type="text" ng-model="storage.data.location.address" ng-disabled="storage.data.location.limit">
           </label>
         </p>

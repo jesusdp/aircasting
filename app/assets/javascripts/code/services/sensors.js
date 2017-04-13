@@ -27,17 +27,7 @@ angular.module("aircasting").factory('sensors', ['params', '$http', 'spinner', f
     initSelected: function() {
       var self = this;
       //this is called only for injectors who verified flag - like crowd map
-      if(this.shouldInitSelected && !this.isEmpty() && !params.get('data').sensorId){
-        if(this.defaultSensor) {
-          params.update({data: {sensorId: this.defaultSensor }});
-        } else {
-          params.update({data: {
-            sensorId: _(self.sensors).chain().keys().sortBy(function(sensorId) {
-              return -1 * self.sensors[sensorId].session_count;
-            }).first().value()
-          }});
-        }
-      }
+      params.update({data: {sensorId: 'Particulate Matter-AirBeam-PM (µg/m³)' }});
     },
     get: function() {
       return this.sensors;
