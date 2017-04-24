@@ -111,6 +111,7 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
         this.mapObj.setMapTypeId(newMapTypeId);
         $cookieStore.put("vp_mapType", newMapTypeId);
       }
+      google.maps.setZoom(20);
     },
     onMapTypeIdChanged: function() {
       var mapType = this.mapObj.getMapTypeId();
