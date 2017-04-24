@@ -38,6 +38,8 @@ function FixedSessionsMapCtrl($scope, params, heat, map, sensors, expandables, s
 
     sensors.shouldInitSelected = true;
     sensors.initSelected();
+
+    $scope.goToCrowdMap();
   };
 
   $scope.searchSessions = function() {
