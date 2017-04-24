@@ -40,11 +40,8 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       var self = this;
       geocoder.get(address, function(results, status) {
         if(status == google.maps.GeocoderStatus.OK) {
+          self.mapObj.setOptions({ maxZoom: 20 });
           self.mapObj.fitBounds(results[0].geometry.viewport);
-          var listener = google.maps.event.addListener(map, "idle", function() {
-            if (map.getZoom() != 20) map.setZoom(20);
-            google.maps.event.removeListener(listener);
-          });
         }
       });
     },
@@ -81,17 +78,11 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       var southwest = new google.maps.LatLng(obj.south, obj.west);
       var bounds = new google.maps.LatLngBounds(southwest, northeast);
       var self = this;
+      self.mapObj.setOptions({ maxZoom: 20 });
       self.mapObj.fitBounds(bounds);
-      var listener = google.maps.event.addListener(map, "idle", function() {
-        if (map.getZoom() != 20) map.setZoom(20);
-        google.maps.event.removeListener(listener);
-      });
-      $timeout(function(){
+      $timeout(function() {
+        self.mapObj.setOptions({ maxZoom: 20 });
         self.mapObj.fitBounds(bounds);
-        var listener = google.maps.event.addListener(map, "idle", function() {
-          if (map.getZoom() != 20) map.setZoom(20);
-          google.maps.event.removeListener(listener);
-        });
       });
     },
     onZoomChanged: function() {
@@ -111,7 +102,6 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
         this.mapObj.setMapTypeId(newMapTypeId);
         $cookieStore.put("vp_mapType", newMapTypeId);
       }
-      this.setZoom(20);
     },
     onMapTypeIdChanged: function() {
       var mapType = this.mapObj.getMapTypeId();
