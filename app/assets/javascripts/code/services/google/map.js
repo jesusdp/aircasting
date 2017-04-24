@@ -91,7 +91,7 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       // if zoom is too high for terrain map, switch to hybrid map (but remember last used type)
       var zoom = this.getZoom();
       var newMapTypeId;
-      this.mapObj.setZoom(20);
+
       if(zoom >= 15 && this.mapObj.getMapTypeId() == google.maps.MapTypeId.TERRAIN) {
         newMapTypeId = google.maps.MapTypeId.HYBRID;
         this.previousMapTypeId = google.maps.MapTypeId.TERRAIN;
