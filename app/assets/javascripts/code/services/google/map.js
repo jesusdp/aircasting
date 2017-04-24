@@ -13,10 +13,6 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       this.listen("maptypeid_changed", _(this.onMapTypeIdChanged).bind(this));
       this.listeners = [];
       rectangles.init(this.mapObj);
-      var listener = this.mapObj.event.addListener(map, "idle", function() { 
-        if (map.getZoom() != 20) map.setZoom(20); 
-        this.mapObj.event.removeListener(listener); 
-      });
     },
     get: function(){
       return this.mapObj;
@@ -45,6 +41,10 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       geocoder.get(address, function(results, status) {
         if(status == google.maps.GeocoderStatus.OK) {
           self.mapObj.fitBounds(results[0].geometry.viewport);
+          var listener = google.maps.event.addListener(map, "idle", function() {
+            if (map.getZoom() != 20) map.setZoom(20);
+            google.maps.event.removeListener(listener);
+          });
         }
       });
     },
@@ -82,8 +82,16 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       var bounds = new google.maps.LatLngBounds(southwest, northeast);
       var self = this;
       self.mapObj.fitBounds(bounds);
+      var listener = google.maps.event.addListener(map, "idle", function() {
+        if (map.getZoom() != 20) map.setZoom(20);
+        google.maps.event.removeListener(listener);
+      });
       $timeout(function(){
         self.mapObj.fitBounds(bounds);
+        var listener = google.maps.event.addListener(map, "idle", function() {
+          if (map.getZoom() != 20) map.setZoom(20);
+          google.maps.event.removeListener(listener);
+        });
       });
     },
     onZoomChanged: function() {
