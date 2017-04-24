@@ -13,6 +13,10 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       this.listen("maptypeid_changed", _(this.onMapTypeIdChanged).bind(this));
       this.listeners = [];
       rectangles.init(this.mapObj);
+      var listener = this.mapObj.event.addListener(map, "idle", function() { 
+        if (map.getZoom() != 20) map.setZoom(20); 
+        this.mapObj.event.removeListener(listener); 
+      });
     },
     get: function(){
       return this.mapObj;
