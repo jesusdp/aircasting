@@ -6,7 +6,6 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
   Map.prototype = {
     init: function(element, options) {
       this.mapObj = new google.maps.Map(element, options);
-      this.mapObj.setOptions({ minZoom: 20 });
       this.mapObj.setZoom(20);
       this.markers = [];
       this.listen("idle", this.saveViewport);
