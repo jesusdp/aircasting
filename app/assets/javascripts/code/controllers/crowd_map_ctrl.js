@@ -7,6 +7,7 @@ function CrowdMapCtrl($scope, $http, params, heat, $window, map, sensors, expand
     $scope.storageEvents = storageEvents;
     $scope.sensors = sensors;
     $scope.expandables = expandables;
+    $scope.expandables.toggle('heat');
 
     $scope.minResolution = 10;
     $scope.maxResolution = 50;
