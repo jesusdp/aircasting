@@ -178,7 +178,7 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
         ]
     }
 ];
-      this.mapObj.setStyles(styles);
+      this.mapObj.setOptions({styles : styles});
       this.markers = [];
       this.listen("idle", this.saveViewport);
       this.listen("visible_changed", function(){$rootScope.$digest();}, this.mapObj.getStreetView());
