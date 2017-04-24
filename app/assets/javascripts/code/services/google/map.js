@@ -40,7 +40,7 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       var self = this;
       geocoder.get(address, function(results, status) {
         if(status == google.maps.GeocoderStatus.OK) {
-          self.mapObj.setOptions({ maxZoom: 20 });
+          self.mapObj.setZoom(20);
           self.mapObj.fitBounds(results[0].geometry.viewport);
         }
       });
@@ -78,10 +78,10 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
       var southwest = new google.maps.LatLng(obj.south, obj.west);
       var bounds = new google.maps.LatLngBounds(southwest, northeast);
       var self = this;
-      self.mapObj.setOptions({ maxZoom: 20 });
+      self.mapObj.setZoom(20);
       self.mapObj.fitBounds(bounds);
       $timeout(function() {
-        self.mapObj.setOptions({ maxZoom: 20 });
+        self.mapObj.setZoom(20);
         self.mapObj.fitBounds(bounds);
       });
     },
