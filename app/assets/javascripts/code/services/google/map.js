@@ -6,7 +6,7 @@ angular.module("google").factory("map", ["params", "$cookieStore", "$rootScope",
   Map.prototype = {
     init: function(element, options) {
       this.mapObj = new google.maps.Map(element, options);
-      this.mapObj.setOptions({ maxZoom: 20 });
+      this.mapObj.setOptions({ maxZoom: 20, scrollwheel: false });
       var styles = [
       {
         "featureType": "all",
