@@ -2,33 +2,33 @@
   <h4 ng-click="expandables.toggle('heat')" ng-class="expandables.css('heat')">Air quality colour scale</h4>
   <section ng-show="expandables.visible('heat')">
     <p>“The colour scale is <a href="http://aqicn.org/faq/2013-09-09/revised-pm25-aqi-breakpoints/">Air Quality Index standards for PM2.5 particulates</a>. <span style="color: green;">Green</span> represents good quality air with little to no risk, <span style="color: yellow;">yellow</span> shows moderate risks for those unusually sensitive to air pollution, <span style="color: orange;">orange</span> shows unhealthy air quality levels for sensitive groups, and <span style="color: red;">red</span> is unhealthy for everyone, with sensitive groups potentially facing serious health effects. For all colours outside of Green, the AQI and WHO recommend active children, adults and vulnerable groups with respiratory diseases limit prolonged outdoor exertion.”</p>
-    <div class="slider">
+    <div class="slider" style="display: none;">
       <input airinput type="number" class="highest narrow" airinput-blur="storageEvents.onHighestInput()" >
       <input type="hidden" ng-model="storage.data.heat.highest" >
       <p class="small-text">values greater than this won't be displayed</p>
     </div>
-    <div class="slider wide-slider">
+    <div class="slider wide-slider" style="display: none;">
       <input airinput type="number"  airinput-blur="storageEvents.onHighInput()" class="high narrow"></input>
       <input type="hidden" ng-model="storage.data.heat.high" >
       <div slider slider-max="storage.data.heat.highest"  slider-min="storage.data.heat.lowest" slider-value="storage.data.heat.high" slider-onslide="storageEvents.onHeatChangeHigh" slider-onchange="storageEvents.onHeatChangeHigh"></div>
     </div>
-    <div class="slider wide-slider">
+    <div class="slider wide-slider" style="display: none;">
       <input airinput type="number" airinput-blur="storageEvents.onMidInput()" class="mid narrow"></input>
       <input type="hidden" ng-model="storage.data.heat.mid" >
       <div slider slider-max="storage.data.heat.highest "  slider-min="storage.data.heat.lowest" slider-value="storage.data.heat.mid" slider-onslide="storageEvents.onHeatChangeMid"  slider-onchange="storageEvents.onHeatChangeMid"></div>
     </div>
-    <div class="slider wide-slider">
+    <div class="slider wide-slider" style="display: none;">
       <input airinput type="number" airinput-blur="storageEvents.onLowInput()" class="low narrow"></input>
       <input type="hidden" ng-model="storage.data.heat.low" >
       <div slider slider-max="storage.data.heat.highest"  slider-min="storage.data.heat.lowest" slider-value="storage.data.heat.low" slider-onslide="storageEvents.onHeatChangeLow" slider-onchange="storageEvents.onHeatChangeLow"></div>
     </div>
-    <div class="slider">
+    <div class="slider" style="display: none;">
       <input airinput type="number" airinput-blur="storageEvents.onLowestInput()" class="lowest narrow"></input>
       <input type="hidden" ng-model="storage.data.heat.lowest" >
       <p class="small-text">values less than this won't be displayed</p>
     </div>
 
-    <div>
+    <div style="display: none;">
       <ul class="buttons">
         <li><button ng-click="resetHeat()">reset</button></li>
         <li><button ng-click="storage.update('heat')">save</button></li>
